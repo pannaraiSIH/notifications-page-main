@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
+
+:root{
+    --ff: 'Plus Jakarta Sans', sans-serif;
+
+    --fs-heading: clamp(1rem, 3vw, 1.2rem);
+    --fs-para: 0.8rem;
+
+    --fw-800: 800;
+    --fw-500: 500;
+
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+    --white: hsl(0, 0%, 100%);
+    --very-light-grayish-blue: hsl(210, 60%, 98%);
+    --light-grayish-blue-1: hsl(211, 68%, 94%);
+    --light-grayish-blue-2: hsl(205, 33%, 90%);
+    --grayish-blue: hsl(219, 14%, 63%);
+    --dark-grayish-blue: hsl(219, 12%, 42%);
+    --very-dark-blue: hsl(224, 21%, 14%);
+}
+
+/* ******************** */
+/*  RESET  */
+/* ******************** */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ******************** */
+/*  GLOBAL  */
+/* ******************** */
+body {
+    font-family: var(--ff);
+    background-color: var(--very-light-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: var(--fs-para);
+    color: var(--dark-grayish-blue);
+    line-height: 1.4;
+}
+
+time {
+    display: inline-block;
+    font-size: var(--fs-para);
+    color: var(--grayish-blue);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 40rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1.5rem 0.2rem var(--light-grayish-blue-2);
+}
+
+/* ******************** */
+/*  HEADER  */
+/* ******************** */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 0;
+}
+
+header h1 {
+    font-size: var(--fs-heading);
+    color: var(--very-dark-blue);
+}
+
+header h1 .unread-num {
+    padding: 0.1rem 0.5rem; 
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 0.4rem;
+    margin-inline-start: 0.5rem;
+}
+
+header .mark a {
+    color: var(--dark-grayish-blue);
+    transition: 400ms ease-in-out;
+}
+
+/* Active state*/
+
+header .mark a:hover {
+    color: var(--blue);
+}
+
+
+
+/* ******************** */
+/*  CONTENT  */
+/* ******************** */
+
+.content-wrap {
+    padding: 1.2rem;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.noti-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+}
+
+.noti-wrap .info p {
+    margin-bottom: -4px;
+}
+
+.unread-box {
+    background-color: var(--very-light-grayish-blue);
+    border-radius: 0.5rem;
+    transition: 400ms ease-in-out;
+}
+
+.unread-box .info p {
+    position: relative;
+}
+
+.unread-box .info p::after {
+    content: "";
+    width: 0.5rem;
+    aspect-ratio: 1/1;
+    background-color: var(--red);
+    border-radius: 50%;
+    position: absolute;
+    margin: 0.3rem 0.5rem;
+    transition: 400ms ease-in-out;
+}
+
+.noti-wrap img {
+    width: 2.5rem;
+}
+
+.noti-wrap .info .name {
+    color: var(--very-dark-blue);
+    font-weight: var(--fw-800);
+    margin-right: 0.25rem;
+    transition: 400ms ease-in-out;
+}
+
+.noti-wrap .info .post {
+    color: var(--dark-grayish-blue);
+    font-weight: var(--fw-800);
+    margin-left: 0.25rem;
+    transition: 400ms ease-in-out;
+}
+
+.noti-wrap .info .club {
+    color: var(--blue);
+    font-weight: var(--fw-800);
+    margin-left: 0.25rem;
+    transition: 400ms ease-in-out;
+}
+
+.private-msg {
+    border: 1px solid var(--light-grayish-blue-2);
+    border-radius: 0.3rem;
+    margin-top: 0.5rem;
+    transition: 400ms ease-in-out;
+}
+
+.private-msg p a {
+    display: inline-block;
+    padding: 0.7rem 0.7rem 0.9rem;
+    color: var(--dark-grayish-blue);
+}
+
+.kim {
+    justify-content: space-between;
+}
+
+.kim .flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Active state*/
+
+.info .name:hover {
+    color: var(--blue);
+}
+
+.info .post:hover {
+    color: var(--blue);
+}
+
+.info .private-msg:hover {
+    background-color: var(--light-grayish-blue-1);
+    border-color: var(--light-grayish-blue-1);
+}
+
+.active.unread-box {
+    background-color: transparent;
+}
+
+.active.unread-box .info p::after  {
+    opacity: 0;
+}
+
+/* ******************** */
+/*  MEDIA-QUERY  */
+/* ******************** */ 
+
+@media screen and (min-width: 48em) {
+    .container {
+        margin: 3rem 1rem;
+    }
+
+    header {
+        padding: 2rem 2rem 0;
+    }
+
+    .content-wrap {
+        padding: 2rem;
+    }
+
+    .private-msg p a {
+        padding: 0.7rem 1rem 1rem;
+    }
+}
