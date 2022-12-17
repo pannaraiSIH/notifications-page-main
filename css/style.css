@@ -113,7 +113,7 @@ p {
     line-height: 1.4;
 }
 
-time {
+.time {
     display: inline-block;
     font-size: var(--fs-para);
     color: var(--grayish-blue);
