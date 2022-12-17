@@ -197,7 +197,7 @@ header .mark a:hover {
     position: relative;
 }
 
-.unread-box .info p::after {
+.unread-box .info p:first-child::after {
     content: "";
     width: 0.5rem;
     aspect-ratio: 1/1;
